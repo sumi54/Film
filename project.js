@@ -2,7 +2,9 @@ let form = document.getElementById("film-form");
 let titleElement = document.getElementById("title");
 let directorElement = document.getElementById("director");
 let urlElement = document.getElementById("url");
+
 let ui = new UI();
+let storage=new Storage();
 //  let film=new Film(titleElement,directorElement,urlElement);
 eventListeners();
 
@@ -20,6 +22,7 @@ function addFilm(e) {
     else{
         let newfilm=new Film(title,director,url);
         ui.addFilmToUI(newfilm);
+        storage.addFilmToStorage(newfilm);
         ui.showAlert("success","Başarıyla oluşturuldu.");
     }
     ui.clearInputs(titleElement,urlElement,directorElement);
