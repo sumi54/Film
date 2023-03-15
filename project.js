@@ -2,6 +2,7 @@ let form = document.getElementById("film-form");
 let titleElement = document.getElementById("title");
 let directorElement = document.getElementById("director");
 let urlElement = document.getElementById("url");
+let cardbody=document.querySelectorAll(".card-body")[1];
 
 let ui = new UI();
 let storage = new Storage();
@@ -14,6 +15,7 @@ function eventListeners() {
         let films = storage.getFilmsFromStorage();
         ui.loadAllFilms(films);
     });
+    cardbody.addEventListener("click",deleteFilm);
 }
 
 function addFilm(e) {
@@ -30,4 +32,9 @@ function addFilm(e) {
     }
     ui.clearInputs(titleElement, urlElement, directorElement);
     e.preventDefault();
+}
+function deleteFilm(e){
+    if(e.target.id==="delete-film"){
+        ui.deleteFilmFromUI(e.target);
+    }
 }
