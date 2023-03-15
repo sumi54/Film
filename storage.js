@@ -1,16 +1,17 @@
-function Storage(){
+function Storage() {
 
 }
-Storage.prototype.addFilmToStorage=function(newfilm){
-    let films;
+Storage.prototype.addFilmToStorage = function (newfilm) {
+    let films = this.getFilmsFromStorage();
     films.push(newfilm);
-    localStorage.setItem("films",JSON.stringify(films));
+    localStorage.setItem("films", JSON.stringify(films));
 }
-Storage.prototype.getFilmsFromStorage=function(){
+Storage.prototype.getFilmsFromStorage = function () {
     let films;
-    if(localStorage.getItem("films")===null){
-        films=[];
-    }else{
-        films=JSON.parse(localStorage.getItem("films"));
+    if (localStorage.getItem("films") === null) {
+        films = [];
+    } else {
+        films = JSON.parse(localStorage.getItem("films"));
     }
+    return films;
 }

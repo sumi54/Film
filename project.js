@@ -4,12 +4,16 @@ let directorElement = document.getElementById("director");
 let urlElement = document.getElementById("url");
 
 let ui = new UI();
-let storage=new Storage();
+let storage = new Storage();
 //  let film=new Film(titleElement,directorElement,urlElement);
 eventListeners();
 
 function eventListeners() {
     form.addEventListener("submit", addFilm);
+    document.addEventListener("DOMContentLoaded", function () {
+        let films = storage.getFilmsFromStorage();
+        ui.loadAllFilms(films);
+    });
 }
 
 function addFilm(e) {
@@ -17,14 +21,13 @@ function addFilm(e) {
     let director = directorElement.value;
     let url = urlElement.value;
     if (title == "" || director == "" || url == "") {
-        ui.showAlert("danger","Boş bırakılan yerler var.");
-    }
-    else{
-        let newfilm=new Film(title,director,url);
+        ui.showAlert("danger", "Boş bırakılan yerler var.");
+    } else {
+        let newfilm = new Film(title, director, url);
         ui.addFilmToUI(newfilm);
         storage.addFilmToStorage(newfilm);
-        ui.showAlert("success","Başarıyla oluşturuldu.");
+        ui.showAlert("success", "Başarıyla oluşturuldu.");
     }
-    ui.clearInputs(titleElement,urlElement,directorElement);
+    ui.clearInputs(titleElement, urlElement, directorElement);
     e.preventDefault();
 }
