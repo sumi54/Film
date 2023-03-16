@@ -12,10 +12,10 @@ UI.prototype.addFilmToUI = function (newfilm) {
     let filmList = document.getElementById("films");
     filmList.innerHTML += `
       <tr>
-           <td><img src="${newfilm.url}" class="img-fluid img-thumbnail"></td>
-            <td>${newfilm.title}</td>                                
-            <td>${newfilm.director}</td>                                
-            <td><a href="#" id = "delete-film" class = "btn btn-danger">Filmi Sil</a></td>
+            <td><img src="${newfilm.url}" class="img-fluid img-thumbnail"></td>
+            <td class="align-middle">${newfilm.title}</td>                                
+            <td class="align-middle">${newfilm.director}</td>                                
+            <td class="align-middle"><a href="#" id = "delete-film" class = "btn btn-danger">Filmi Sil</a></td>
      </tr>                                                                                                                                 
       `;
 }
@@ -39,10 +39,10 @@ UI.prototype.loadAllFilms = function (films) {
     films.forEach(function (film) {
         filmList.innerHTML += `
         <tr>
-           <td><img src="${film.url}" class="img-fluid img-thumbnail"></td>
-            <td>${film.title}</td>                                
-            <td>${film.director}</td>                                
-            <td><a href="#" id = "delete-film" class = "btn btn-danger">Filmi Sil</a></td>
+            <td><img src="${film.url}" class="img-fluid img-thumbnail"></td>
+            <td class="align-middle">${film.title}</td>                                
+            <td class="align-middle">${film.director}</td>                                
+            <td class="align-middle"><a href="#" id = "delete-film" class = "btn btn-danger">Filmi Sil</a></td>
      </tr>`;
         
     });
